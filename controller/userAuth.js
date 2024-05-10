@@ -18,6 +18,11 @@ const signup = async (req, res) => {
     const id = ulid();
     logger.info("enter into signup");
     logger.info(content);
+    const username_exits = await client.query(queriesuserauth.getUserFromUsername,[content.username]);
+    if(username_exits.rowCount>0){
+      throw new Error("Username Already Exits");
+    }
+
     const hashpass = await bcrypt.hash(content.password, 10);
     await client.query("BEGIN");
     const adduser = await client.query(queriesuserauth.addUser, [
