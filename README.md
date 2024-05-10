@@ -1,4 +1,5 @@
 Enhanced Authentication API
+
 This backend API project aims to enhance the existing authentication system by introducing new features that allow users to set their profiles as public or private. Additionally, it implements functionality for admin users to view both public and private user profiles, while normal users can only access public profiles. The backend is built using Node.js.
 
 API
